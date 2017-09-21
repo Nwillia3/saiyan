@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   # GET /appointments
@@ -10,21 +11,29 @@ class AppointmentsController < ApplicationController
   # GET /appointments/1
   # GET /appointments/1.json
   def show
+    
   end
 
   # GET /appointments/new
   def new
-    @appointment = Appointment.new
+    @appointment = current_user.appointments.build
   end
 
   # GET /appointments/1/edit
   def edit
+    if current_user.id == @appointment.user.id
+     
+    else
+      redirect_to root_path, notice: "You don't have permission."
+    end
+  
   end
 
   # POST /appointments
   # POST /appointments.json
   def create
-    @appointment = Appointment.new(appointment_params)
+
+    @appointment = current_user.appointments.build(appointment_params)
 
     respond_to do |format|
       if @appointment.save
@@ -69,6 +78,6 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-     params.require(:appointment).permit(:app_date, :user_id, :trainer_id)
+     params.require(:appointment).permit(:app_date, :user_id, :trainer_id, :location)
     end
 end
