@@ -21,11 +21,12 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/1/edit
   def edit
-    if current_user.id == @appointment.user.id
+    # if current_user.id == @appointment.user.id #|| user.admin = @appointment.user.admin
      
-    else
-      redirect_to root_path, notice: "You don't have permission."
-    end
+    # else
+
+    #   redirect_to root_path, notice: "You don't have permission."
+    # end
   
   end
 

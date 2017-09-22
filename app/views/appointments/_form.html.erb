@@ -28,10 +28,10 @@
       <%= f.label :trainer_id %><br>
       <%= select("appointment", "trainer_id", Trainer.all.collect {|p| [ p.username, p.id ] }) %>
     </div>
-    <div class="field">
-      <%= f.label :user_id %><br>
-      <%= select("appointment", "user_id", User.all.collect {|p| [ p.fullname, p.id ] }) %>
-    </div>
+    <!-- <div class="field">
+      <%#= f.label :user_id %><br>
+      <%#= select("appointment", "user_id", User.all.collect {|p| [ p.fullname, p.id ] }) %>
+    </div> -->
 
 
     <div class="actions">
