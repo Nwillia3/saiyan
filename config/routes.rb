@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/supersaiyan', as: 'rails_admin'
+
   root'home#index'
-  # root 'home#show'
+
 
   resources :appointments
 

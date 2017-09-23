@@ -5,7 +5,12 @@ class Ability
 
     if user.admin?
         can :manage, :all 
+        can :access, :rails_admin
+        can :dashboard
+        
+
     else 
+        cannot :access, :rails_admin
         can :update, Appointment do |appointment|
             appointment.user == user
         end 

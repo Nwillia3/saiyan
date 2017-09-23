@@ -29,11 +29,11 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
-gem 'bootstrap', '~> 4.0.0.beta'
+# gem 'bootstrap', '~> 4.0.0.beta'
 gem "cancan"
 
-
-
+gem 'rails_admin', '~> 1.2'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

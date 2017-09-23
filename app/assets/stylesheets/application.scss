@@ -1,0 +1,15 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body{
+  color: #565A5C;
+  background-color: #F8F8F8;
+  
+}
+
+
+/*to fix the fixed nav bar issue */
+#contain{
+	margin-top: 60px;
+}
