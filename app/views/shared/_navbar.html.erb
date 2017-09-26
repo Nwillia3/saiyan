@@ -20,6 +20,13 @@
         
         <li><a href="#">Find a trainer </a></li>
 
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to( current_user.id, edit_user_registration_path) %>
+             
+          </li>
+        <% end %>
+
         <% if !user_signed_in? %> 
           <li>
               <%= link_to('Sign up', new_user_registration_path) %> 
