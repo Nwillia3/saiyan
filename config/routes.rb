@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
 
+  get 'user_profiles/show'
+
   mount RailsAdmin::Engine => '/supersaiyan', as: 'rails_admin'
 
   root'home#index'
 
+  resources :user_profiles
 
   resources :appointments
 
 
-  devise_for :trainers, path: 'trainers', controllers: {
+  devise_for :trainers, 
+         path: 'trainers',
+         path_names: {sign_in: 'login', sign_out: 'logout', edit: 'edit'}, 
+         controllers: {
          sessions: 'trainers/sessions',
          registrations: 'trainers/registrations',
          passwords: 'trainers/passwords',

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921225804) do
+ActiveRecord::Schema.define(version: 20170926012406) do
 
   create_table "appointments", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +48,27 @@ ActiveRecord::Schema.define(version: 20170921225804) do
     t.boolean  "admin"
     t.index ["email"], name: "index_trainers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true
+  end
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "fullname"
+    t.string   "username"
+    t.text     "fitnessGoal"
+    t.text     "diet"
+    t.string   "height"
+    t.integer  "weight"
+    t.integer  "age"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["age"], name: "index_user_profiles_on_age"
+    t.index ["diet"], name: "index_user_profiles_on_diet"
+    t.index ["fitnessGoal"], name: "index_user_profiles_on_fitnessGoal"
+    t.index ["fullname"], name: "index_user_profiles_on_fullname"
+    t.index ["height"], name: "index_user_profiles_on_height"
+    t.index ["user_id"], name: "index_user_profiles_on_user_id"
+    t.index ["username"], name: "index_user_profiles_on_username"
+    t.index ["weight"], name: "index_user_profiles_on_weight"
   end
 
   create_table "users", force: :cascade do |t|

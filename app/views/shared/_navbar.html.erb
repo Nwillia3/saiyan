@@ -13,18 +13,29 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-collapse-2">
+      
       <ul class="nav navbar-nav navbar-right">
-        <li>
-            <%= link_to('Become a trainer', new_trainer_registration_path) %> 
-        </li>
+        <% if !user_signed_in? %> 
+          <li>
+              <%= link_to('Become a trainer', new_trainer_registration_path) %> 
+          </li>
+        <% end %>
         
         <li><a href="#">Find a trainer </a></li>
 
         <% if user_signed_in? %>
-          <li>
-            <%= link_to( current_user.id, edit_user_registration_path) %>
-             
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.id %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              
+              <a class="dropdown-item"> <%= link_to('Profile', user_profiles_show_path) %></a> <br>
+              <a class="dropdown-item"> <%= link_to('Edit Setting', edit_user_registration_path) %></a>
+              
+            </div>
           </li>
+          
         <% end %>
 
         <% if !user_signed_in? %> 
